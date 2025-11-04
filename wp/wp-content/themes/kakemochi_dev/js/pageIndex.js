@@ -18,6 +18,10 @@ window.onload = function () {
 	// 	});
 	// });
 
+	// ローディング表示を非表示にして目次を表示
+	$('.table-of-contents-loading').addClass('is-hidden');
+	$('.table-of-contents').addClass('is-loaded');
+
 	// モーダル表示ボタンを表示
 	$('.modal_index_toggle').css('display', 'flex');
 
@@ -46,11 +50,18 @@ window.onload = function () {
 			});
 		});
 	}
+	// デフォルトで閉じた状態にする
+	$('.table-of-contents').addClass('is-closed');
+	$('.table-of-contents-toggle').text('OPEN');
 	$('.table-of-contents-toggle').fadeIn();
+
 	$('.table-of-contents-toggle').click(function () {
-		$('.page_index_level_1').toggle();
+		var tableOfContents = $('.table-of-contents');
 		var toggleButton = $(this);
-		if (toggleButton.text() === 'CLOSE') {
+
+		tableOfContents.toggleClass('is-closed');
+
+		if (tableOfContents.hasClass('is-closed')) {
 			toggleButton.text('OPEN');
 		} else {
 			toggleButton.text('CLOSE');

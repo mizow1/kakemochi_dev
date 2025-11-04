@@ -149,6 +149,11 @@ get_header();
 								strpos($request_uri, '/column/') !== false
 							):
 							?>
+								<!-- ローディング表示 -->
+								<div class="table-of-contents-loading">
+									<div class="table-of-contents-spinner"></div>
+								</div>
+
 								<div class="table-of-contents">
 									<div class="table-of-contents-header">
 										<div>目次</div>

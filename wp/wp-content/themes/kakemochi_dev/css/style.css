@@ -33926,8 +33926,51 @@ ul.career_list li {
 	margin-bottom: 3rem;
 	padding: 40px 64px;
 	border: 4px solid #ECF6F0;
-
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease-in-out;
 }
+
+/* ロード完了後に表示 */
+.table-of-contents.is-loaded {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* ローディング表示 */
+.table-of-contents-loading {
+	width: auto;
+	max-width: 42rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 3rem;
+	padding: 40px 64px;
+	border: 4px solid #ECF6F0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 200px;
+}
+
+.table-of-contents-loading.is-hidden {
+	display: none;
+}
+
+/* ローディングスピナー */
+.table-of-contents-spinner {
+	border: 4px solid #f3f3f3;
+	border-top: 4px solid #79bd9a;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
 .table-of-contents-header{
     position: relative;
     color: #79bd9a;
@@ -34064,6 +34107,29 @@ ol.page_index_level_1>li{
 .page_index_level_2 .page_index_item a,
 .chevron-icon {
 	transition: all .5s ease-in-out;
+}
+
+/* 閉じた状態のスタイル */
+.table-of-contents.is-closed {
+	position: relative;
+	max-height: 450px;
+	overflow: hidden;
+}
+
+.table-of-contents.is-closed .page_index_level_2 {
+	display: none;
+}
+
+/* グラデーション効果を疑似要素で実現 */
+.table-of-contents.is-closed::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 120px;
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+	pointer-events: none;
 }
 
 /* OW記事目次 モーダル表示 20250515 */
