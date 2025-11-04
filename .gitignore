@@ -1,0 +1,26 @@
+# すべてを除外
+/*
+
+# wpディレクトリは含める
+!wp/
+
+# wp配下をすべて除外
+wp/*
+
+# wp-contentは含める
+!wp/wp-content/
+
+# wp-content配下をすべて除外
+wp/wp-content/*
+
+# themesディレクトリは含める
+!wp/wp-content/themes/
+
+# themes配下をすべて除外
+wp/wp-content/themes/*
+
+# kakemochi_devテーマのみ含める
+!wp/wp-content/themes/kakemochi_dev/
+
+# .gitignore自体も含める
+!.gitignore
